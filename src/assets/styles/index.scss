@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+}
+
+.site-layout-content {
+  display: flex !important;
+  flex: auto !important;
+  position: relative !important;
+  background: #fff;
+  padding: 24px;
+  max-height: auto !important;
+}
+
+.navbar-nav{
+  .nav-item{
+      margin-top: 23px;
+  }
+  @media (min-width: 600px) {
+      margin-left: 20px;
+      margin-top: -20px;
+  }
+}
+
+.item-menu{
+  margin-right: 15px;
+  a {
+      color: #F9B234 !important;
+  }
+  a:hover {
+      color: #124179 !important;
+  }
+  .active {
+      color: #124179 !important;
+  }
+}
+
+.home{
+  width: 100%;
+  min-height: 70vh;
+
+  .accordion{
+      padding: 2px;    
+  }
+}
+
+.tasasInteres{
+  display: flex; 
+  justify-content: center;
+}
+
+.tipo{
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: center;
+  .form{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @media (min-width: 600px) {
+          width: 50%;
+      }
+      .ant-input-number{
+          width: 100%;
+      }
+  }
+}
+
+.card{
+  width: 100%;
+
+  .ant-card-head{
+      background-color: #124179;
+      color: #fff;
+  }
+}
+
+.card-head-component {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  p{
+      margin: 0 30px;
+      font-size: 30px;
+      @media (max-width: 600px) {
+          font-size: 15px;
+      }
+  }
+  
+  img{
+      max-height: 32px;
+  }
+}
+
+.contact{
+  @media (max-width: 600px) {
+      height: 70vh;
+  }
+}
+
+.contact-container{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.contact-banner{
+  max-width: 100% !important;
+}
+
+.contact-text{
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .ant-tag{
+      font-size: xx-large;
+      padding: 20px 12px;
+      @media (max-width: 600px) {
+          font-size: x-large;
+          padding: 10px 12px;
+      }
+  }
+}
+
+.contact-info{
+  margin-top: 50px;
+}
+
+.footer{
+  text-align: center;
+  color: #124179 !important;
+  background-color: #f8f9fa !important;
+}
+
+.api{
+  width: 100%;
+
+  .ant-list-header{
+      font-size: xx-large;
+  }
+
+  .documentation{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}
