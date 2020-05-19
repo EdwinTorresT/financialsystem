@@ -1,5 +1,5 @@
 export const PUBLIC_ROUTE = {
-    HOME: '/home',
+    HOME: '/',
     API: '/api',
     CREDITS: '/credits',
     CONTACT: '/contact'

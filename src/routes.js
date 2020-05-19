@@ -42,8 +42,8 @@ export default function Routes() {
                                         <route.component />
                                     </Route>
                                 ))}
-                                <Route path="/" >
-                                    <Redirect to={"/home"} />
+                                <Route >
+                                    <Redirect to={"/"} />
                                 </Route>
                             </Switch>
                         </div>

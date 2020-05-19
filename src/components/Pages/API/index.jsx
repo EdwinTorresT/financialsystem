@@ -1,5 +1,6 @@
 import React from 'react';
 import { List, Typography } from 'antd';
+import { Helmet } from "react-helmet";
 
 const { Item } = List;
 
@@ -7,6 +8,9 @@ export default function API() {
 
     return (
         <div className="d-flex flex-column api">
+            <Helmet>
+                <title>Documentación de la API</title>
+            </Helmet>
             <List
                 header={<div>Documentación de la API</div>}
                 bordered

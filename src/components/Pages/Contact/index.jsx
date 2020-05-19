@@ -1,11 +1,15 @@
 import React from 'react';
 import Banner from "assets/images/contact-me.jpg";
 import { Tag, Descriptions } from 'antd';
+import { Helmet } from "react-helmet";
 import "assets/styles/index.scss";
 
 export default function Contact() {
     return (
         <div className="contact">
+            <Helmet>
+                <title>Contacto</title>
+            </Helmet>
             <div className="contact-container">
                 <img
                     alt="Contact Banner"

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
@@ -7,10 +7,6 @@ import "assets/styles/index.scss";
 
 function HeaderComponent() {
     const [expanded, setExpanded] = useState(false);
-
-    useEffect(() => {
-        document.title = "Inicio";
-    });
 
     return (
         <Navbar bg="light" expand="lg" expanded={expanded}>
