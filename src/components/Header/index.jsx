@@ -23,7 +23,7 @@ function HeaderComponent() {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     <Nav.Item className="item-menu">
-                        <NavLink exact to="/home" onClick={() => setExpanded(false)} activeClassName="active">
+                        <NavLink exact to="/" onClick={() => setExpanded(false)} activeClassName="active">
                             Inicio
                         </NavLink>
                     </Nav.Item>

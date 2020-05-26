@@ -1,6 +1,9 @@
 import React from 'react';
 import { Card, Typography } from 'antd';
 import { Helmet } from "react-helmet";
+import ScrollToTop from 'react-scroll-up';
+import { FiArrowUpCircle } from "react-icons/fi";
+import "assets/styles/index.scss";
 
 export default function API() {
 
@@ -9,7 +12,7 @@ export default function API() {
             <Helmet>
                 <title>Documentación de la API</title>
             </Helmet>
-            <Card title={<h3>Documentación de la API</h3>}>
+            <Card title={<h3 className="title-card">Documentación de la API</h3>}>
                 <p>
                     Esta API es un proyecto abierto y está disponible su repositorio para descargar en
                         <a href="https://github.com/danielmillan/financial-system-backend"
@@ -185,6 +188,9 @@ export default function API() {
                     </pre>
                 </Typography.Paragraph>
             </Card>
+            <ScrollToTop showUnder={160}>
+                <FiArrowUpCircle className="back-icon" />
+            </ScrollToTop>
         </div>
     )
 }

@@ -17,18 +17,29 @@ code {
   flex: auto !important;
   position: relative !important;
   background: #fff;
-  padding: 24px;
+  padding: 5px;
   max-height: auto !important;
 }
 
-.navbar-nav{
-  .nav-item{
-      margin-top: 23px;
+.navbar{
+  position: fixed !important;
+  z-index: 1 !important;
+  width: 100%;
+
+  &-nav{
+    .nav-item{
+        margin-top: 23px;
+        width: 70px !important;
+    }
+    @media (min-width: 600px) {
+        margin-left: 20px;
+        margin-top: -20px;
+    }
   }
-  @media (min-width: 600px) {
-      margin-left: 20px;
-      margin-top: -20px;
-  }
+}
+
+.ant-layout-content{
+  margin-top: 64px !important;
 }
 
 .item-menu{
@@ -58,21 +69,84 @@ code {
   justify-content: center;
 }
 
+.tipo-int{
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: center;
+
+  .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media (min-width: 600px) {
+        width: 70%;
+    }
+  }
+}
+
 .tipo{
   border-bottom: 1px solid #f0f0f0;
   display: flex;
   justify-content: center;
-  .form{
+
+  .container-form{
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 600px) {
+      width: 125rem !important;
+    }
+
+    .button-ok{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .form{
       display: flex;
       flex-direction: column;
       justify-content: center;
       @media (min-width: 600px) {
-          width: 50%;
+          width: 100%;
       }
+
+      .basic-fields{
+        @media (min-width: 600px) {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+
+          .inputs{
+            display: flex;
+            flex-direction: row;
+
+            .ant-form-item{
+              @media (min-width: 600px) {
+                margin-left: 20px;
+              }
+            }
+          }
+          .conditional{
+            display: flex;
+            flex-direction: row;
+            .ant-form-item{
+              @media (min-width: 600px) {
+                margin-left: 20px;
+                width: 650px;
+              }
+            }
+          }
+        }
+      }
+
       .ant-input-number{
           width: 100%;
       }
   }
+
+  }
+  
+  
 }
 
 .card{
@@ -144,16 +218,211 @@ code {
   background-color: #f8f9fa !important;
 }
 
+.back-icon{
+  font-size: 50px !important;
+  @media (max-width: 600px) {
+    font-size: 30px !important;
+  }
+}
+
 .api{
   width: 100%;
-
-  .ant-list-header{
-      font-size: xx-large;
-  }
 
   .documentation{
       display: flex;
       flex-direction: column;
       align-items: flex-start;
   }
+  .title-card{
+    @media (max-width: 600px) {
+      font-size: 25px;
+    }
+  }
+}
+
+.credits{
+  width: 100%;
+
+  .ant-card-body{
+    margin-top: -20px !important;
+  }
+
+  .icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .title-card{
+    @media (max-width: 600px) {
+      font-size: 25px;
+    }
+  }
+
+  .list-credits{
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+
+    .description{
+      margin-left: 15px !important;
+      font-size: 23px !important;
+      @media (max-width: 600px) {
+        font-size: 12px !important;
+      }
+    }
+  }
+}
+
+.add-form{
+  display: flex !important;
+  flex-direction: column;
+  padding: 3px;
+  justify-content: center !important;
+  margin-bottom: 20px;
+  width: 100% !important;
+
+  &-container{
+    display: flex !important;
+    align-items: center !important;
+
+    .item{
+      margin: 0 12px 0 12px !important;
+    }
+
+    .select{
+      margin-top: 30px;
+      
+      .ant-select-selector{
+        min-width: 150px !important;
+      }
+    }
+  }  
+}
+
+.extra{
+
+  .container{
+    border: 1px solid;
+    margin-bottom: 20px;
+    @media (min-width: 600px) {
+      max-width: 100rem;
+    }
+
+    .table-responsive{
+      @media (max-width: 600px) {
+        margin-bottom: 20px;
+
+        .payments{
+          margin-top: 25px;
+          min-width: auto !important;
+        }
+      }
+    }
+
+    .label{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .fields-extra{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      min-width: auto !important;
+      margin-bottom: 2px;
+
+      .inputs{
+        margin-bottom: 12px;
+        @media (max-width: 600px) {
+          min-width: 200px !important;
+        }
+        @media (min-width: 600px) {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
+
+        .form-inputs{          
+            display: flex;
+            flex-direction: column !important;
+
+            @media (min-width: 600px) {
+              margin-left: 20px;
+              min-width: 100px !important;
+            }
+
+            label{
+              margin-left: 12px;
+            }
+
+            .ant-input-number{
+              min-width: 200px !important;
+            }
+
+          @media (min-width: 600px) {
+            display: flex;
+            flex-direction: row;
+            max-width: 90rem;
+            .ant-form-item{
+              margin-left: 10px;
+            }
+            .ant-input-number{
+              min-width: 200px !important;
+              @media (min-width: 600px) {
+                width: auto !important;
+              }
+            }
+            .ant-select-selector{
+              min-width: 160px;
+            }
+          }
+        }
+        
+        .ant-btn-danger{
+          @media (min-width: 600px) {
+            margin-left: 20px;
+          }
+          padding: 1px;
+          .anticon.anticon-close{
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.add-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 23px;
+    margin-bottom: 30px !important;
+
+    .ant-btn-primary{
+      background-color: green !important;
+    }
+}
+
+.drop-button{
+  @media (max-width: 600px) {
+    margin-top: 15px;
+  }
+
+  @media (min-width: 600px) {
+    display: flex;
+    align-items: center;
+    margin-top: 28px;
+  }
+}
+
+.error{
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  
+    p{
+      color: red !important;
+      font-size: 12px;
+    }
 }

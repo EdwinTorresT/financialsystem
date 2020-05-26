@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Button, Input, Form } from "antd";
+import { Card, Button, Input, Form, notification } from "antd";
 import Logo from "assets/images/heads/interes.png";
 import HeadCard from "components/HeadCard";
 import axios from "axios";
@@ -22,8 +22,11 @@ const tailLayout = {
 
 export default function TasasInteres() {
     const [list, setList] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const onFinish = values => {
+        setLoading(true);
+        let message;
         const data = {
             type: values.converter.type,
             frequency: values.converter.frequency,
@@ -32,8 +35,17 @@ export default function TasasInteres() {
         }
         axios.post(`${siteConfig.apiUrl}/rateconverter`, data, { headers: { 'Access-Control-Allow-Origin': 'origin-list' } }).then(result => {
             setList(result.data.rest);
+            setLoading(false);
         }).catch(error => {
+            setLoading(false);
             console.log(error.response);
+            if (error.response === undefined) message = 'El servidor no está disponible';
+            else message = `el servidor ha devuelto: ${error.response}`
+            notification.error({
+                message: 'Error en la peticion',
+                description: message,
+                duration: 4
+            });
         });
     };
 
@@ -46,7 +58,7 @@ export default function TasasInteres() {
             <Card title={
                 <HeadCard title="Calculadora de Interés" image={Logo} />
             } className="card">
-                <div className="tipo">
+                <div className="tipo-int">
                     <Form
                         className="form"
                         {...layout}
@@ -95,7 +107,7 @@ export default function TasasInteres() {
                         </Form.Item>
 
                         <Form.Item {...tailLayout}>
-                            <Button type="primary" htmlType="submit">Calcular</Button>
+                            <Button type="primary" htmlType="submit" loading={loading}>Calcular</Button>
                         </Form.Item>
 
                     </Form>

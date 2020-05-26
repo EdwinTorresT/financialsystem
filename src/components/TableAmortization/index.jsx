@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from 'antd';
+import { Table, Tag } from 'antd';
 import { FormatMoney } from 'format-money-js';
 
 const fm = new FormatMoney({
@@ -16,13 +16,24 @@ export default function TableTasasInteres(props) {
             key: 'period',
             fixed: 'left',
             width: 80,
+            render: function (text, record, index) {
+                if (list[index].extra && list[index].extra == true) {
+                    return (<Tag color={'green'} key={text}>{text}</Tag>)
+                } else {
+                    return text
+                }
+            }
         },
         {
             title: 'Capital',
             dataIndex: 'capital',
             key: 'capital',
             render: function (text, record, index) {
-                return fm.from(text, { symbol: '$' })
+                if (list[index].extra && list[index].extra == true) {
+                    return (<Tag color={'green'} key={text}>{fm.from(text, { symbol: '$' })}</Tag>)
+                } else {
+                    return fm.from(text, { symbol: '$' })
+                }
             }
         },
         {
@@ -30,7 +41,11 @@ export default function TableTasasInteres(props) {
             dataIndex: 'interest',
             key: 'interest',
             render: function (text, record, index) {
-                return fm.from(text, { symbol: '$' })
+                if (list[index].extra && list[index].extra == true) {
+                    return (<Tag color={'green'} key={text}>{fm.from(text, { symbol: '$' })}</Tag>)
+                } else {
+                    return fm.from(text, { symbol: '$' })
+                }
             }
         },
         {
@@ -38,7 +53,11 @@ export default function TableTasasInteres(props) {
             dataIndex: 'amortization',
             key: 'amortization',
             render: function (text, record, index) {
-                return fm.from(text, { symbol: '$' })
+                if (list[index].extra && list[index].extra == true) {
+                    return (<Tag color={'green'} key={text}>{fm.from(text, { symbol: '$' })}</Tag>)
+                } else {
+                    return fm.from(text, { symbol: '$' })
+                }
             }
         },
         {
@@ -46,7 +65,13 @@ export default function TableTasasInteres(props) {
             dataIndex: 'a',
             key: 'a',
             render: function (text, record, index) {
-                return fm.from(text, { symbol: '$' })
+                if (text === list[index].cextra) {
+                    return (<Tag color={'red'} key={text}>{fm.from(text, { symbol: '$' })}</Tag>)
+                } else if (list[index].extra && list[index].extra == true) {
+                    return (<Tag color={'green'} key={text}>{fm.from(text, { symbol: '$' })}</Tag>)
+                } else {
+                    return fm.from(text, { symbol: '$' });
+                }
             }
         },
         {
@@ -54,7 +79,11 @@ export default function TableTasasInteres(props) {
             dataIndex: 'balance',
             key: 'balance',
             render: function (text, record, index) {
-                return fm.from(text, { symbol: '$' })
+                if (list[index].extra && list[index].extra == true) {
+                    return (<Tag color={'green'} key={text}>{fm.from(text, { symbol: '$' })}</Tag>)
+                } else {
+                    return fm.from(text, { symbol: '$' })
+                }
             }
         }
     ]

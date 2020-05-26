@@ -15,12 +15,12 @@ export default function Home() {
                 <title>Sistema Financiero</title>
             </Helmet>
             <div className="accordion">
-                <Collapse bordered={false}>
+                <Collapse bordered={false} defaultActiveKey={['2']}>
                     <Panel header="Conversión Tasas de Interés" key="1">
                         <TasasInteres />
                     </Panel>
 
-                    <Panel header="Anualidades" key="3">
+                    <Panel header="Anualidades" key="2">
                         <Anualidades />
                     </Panel>
                 </Collapse>
