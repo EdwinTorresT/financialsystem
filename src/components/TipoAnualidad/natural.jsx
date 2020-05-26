@@ -39,6 +39,7 @@ export default function Natural() {
         } else {
             setPayments(undefined);
             setEnable(false);
+            setDisabled(false);
         }
     }, [fields])
 

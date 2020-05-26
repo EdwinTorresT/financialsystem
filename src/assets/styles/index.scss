@@ -74,6 +74,10 @@ code {
   display: flex;
   justify-content: center;
 
+  .rate{
+    min-width: 100% !important;
+  }
+
   .form{
     display: flex;
     flex-direction: column;
@@ -119,6 +123,10 @@ code {
           .inputs{
             display: flex;
             flex-direction: row;
+
+            .option{
+              min-width: 200px !important;
+            }
 
             .ant-form-item{
               @media (min-width: 600px) {
@@ -425,4 +433,23 @@ code {
       color: red !important;
       font-size: 12px;
     }
+}
+
+.download{
+  .button{
+    margin-top: 23px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: flex-end;
+
+    .anticon-file-excel{
+      font-size: 23px;
+    }
+  }
+}
+
+.tax-converted{
+  display: flex;
+  justify-content: center;
+  font-size: 23px;
 }

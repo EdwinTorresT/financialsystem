@@ -14,7 +14,7 @@ const MethodPayment = ({ value = {}, onChange }) => {
     };
 
     const onMethodChange = newMethod => {
-        if (!('currency' in value)) {
+        if (!('method' in value)) {
             setMethod(newMethod);
         }
         triggerChange({ method: newMethod });

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Button, Input, Form, notification } from "antd";
+import { Card, Button, Form, notification, InputNumber } from "antd";
 import Logo from "assets/images/heads/interes.png";
 import HeadCard from "components/HeadCard";
 import axios from "axios";
@@ -28,14 +28,25 @@ export default function TasasInteres() {
         setLoading(true);
         let message;
         const data = {
-            type: values.converter.type,
-            frequency: values.converter.frequency,
-            method: values.converter.method,
+            type: values.type.type,
+            frequency: values.period.frequency,
+            method: values.method.method,
             rate: values.rate
         }
+        console.log(data);
         axios.post(`${siteConfig.apiUrl}/rateconverter`, data, { headers: { 'Access-Control-Allow-Origin': 'origin-list' } }).then(result => {
-            setList(result.data.rest);
-            setLoading(false);
+            console.log(result);
+            if (result.data.status === 'success') {
+                setList(result.data.rest);
+                setLoading(false);
+            } else {
+                setLoading(false);
+                notification.error({
+                    message: 'Error en la peticion',
+                    description: result.data.error,
+                    duration: 4
+                });
+            }
         }).catch(error => {
             setLoading(false);
             console.log(error.response);
@@ -67,16 +78,16 @@ export default function TasasInteres() {
                         onFinishFailed={onFinishFailed}
                         initialValues={{
                             converter: {
-                                type: '',
-                                frequency: '',
-                                method: ''
+                                type: undefined,
+                                frequency: undefined,
+                                method: undefined
                             },
                         }}
                     >
 
                         <Form.Item
                             label="Tipo de Tasa:"
-                            name="converter"
+                            name="type"
                             rules={[{ required: true, message: 'Ingrese el tipo de tasa' }]}
                         >
                             <TypeInteres />
@@ -84,7 +95,7 @@ export default function TasasInteres() {
 
                         <Form.Item
                             label="Periodicidad:"
-                            name="converter"
+                            name="period"
                             rules={[{ required: true, message: 'Ingrese la periodicidad' }]}
                         >
                             <Frequency />
@@ -92,7 +103,7 @@ export default function TasasInteres() {
 
                         <Form.Item
                             label="Forma de Pago:"
-                            name="converter"
+                            name="method"
                             rules={[{ required: true, message: 'Ingrese la forma de pago' }]}
                         >
                             <MethodPayment />
@@ -101,9 +112,9 @@ export default function TasasInteres() {
                         <Form.Item
                             label="Tasa:"
                             name="rate"
-                            rules={[{ required: true, message: 'Ingrese la tasa' }]}
+                            rules={[{ required: true, message: 'Ingrese la tasa', type: 'number' }]}
                         >
-                            <Input placeholder="%" />
+                            <InputNumber placeholder="%" className="rate" />
                         </Form.Item>
 
                         <Form.Item {...tailLayout}>

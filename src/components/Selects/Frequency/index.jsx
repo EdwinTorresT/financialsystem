@@ -14,7 +14,7 @@ const Frequency = ({ value = {}, onChange }) => {
     };
 
     const onFrequencyChange = newFrequency => {
-        if (!('currency' in value)) {
+        if (!('period' in value)) {
             setFrequency(newFrequency);
         }
         triggerChange({ frequency: newFrequency });

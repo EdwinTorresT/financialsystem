@@ -14,7 +14,7 @@ const TypeInteres = ({ value = {}, onChange }) => {
     };
 
     const onTypeChange = newType => {
-        if (!('currency' in value)) {
+        if (!('type' in value)) {
             setType(newType);
         }
         triggerChange({ type: newType });
